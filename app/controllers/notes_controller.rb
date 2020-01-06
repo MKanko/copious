@@ -17,6 +17,10 @@ class NotesController < ApplicationController
         end
     end
 
+    # the conditional logic in create and show should be extracted out into private helper method 
+    # use before action to dry up the code.
+    # use strong params?
+
     def show
         if !(note = Note.find_by(user_id: params[:user_id], video_id: params[:video_id]))
             note = Note.find(params[:id])
@@ -32,7 +36,13 @@ class NotesController < ApplicationController
         render json: NoteSerializer.new(note)
     end 
 
-    
+    def delete
+        note = Note.find_by(user_id: params[:user_id], video_id: params[:video_id]).destroy
+
+        render json: NoteSerializer.new(note)
+    end
+
+
 
 
 end
