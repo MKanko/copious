@@ -42,7 +42,4 @@ class NotesController < ApplicationController
         render json: NoteSerializer.new(note)
     end
 
-
-
-
 end
