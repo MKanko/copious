@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { signIn, signOut } from '../actions'
 
 
 class GoogleAuth extends React.Component {
@@ -53,5 +55,12 @@ class GoogleAuth extends React.Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: (userId) => dispatch(signIn(userId)),
+        signOut: () => dispatch(signOut())
+    }
+}
 
-export default GoogleAuth
+
+export default connect(null, mapDispatchToProps)(GoogleAuth)
