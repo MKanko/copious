@@ -1,11 +1,13 @@
 import React from 'react'
+import Header from '../Header'
 
 
 class NoteList extends React.Component {
+    
     render() {
         return (
             <div>
-                Note List 
+                <Header /> 
             </div>
         )
     }

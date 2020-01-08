@@ -8,7 +8,7 @@ import VideoShow from './components/videos/VideoShow'
 
 const App = () => {
     return (
-        <div>
+        <div className="ui container">
             <BrowserRouter>
                 <div>
                     <Route path="/" exact component={SignIn} />
@@ -22,3 +22,5 @@ const App = () => {
 
 
 export default App 
+
+

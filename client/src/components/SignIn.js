@@ -1,11 +1,20 @@
 import React from 'react'
 
 
+
 const SignIn = () => {
     return (
-        <di>
-            SignIn 
-        </di>
+        <div className="ui placeholder segment">
+            <div>
+                <h2 align="center">
+                    Copious
+                </h2>
+                <h4 align="center">
+                    Sign In
+                </h4>
+            </div>
+            
+        </div>
     )
 }
 
