@@ -1,4 +1,5 @@
 import React from 'react'
+import GoogleAuth from './GoogleAuth'
 
 
 
@@ -12,6 +13,7 @@ const SignIn = () => {
                 <h4 align="center">
                     Sign In
                 </h4>
+                <GoogleAuth />
             </div>
             
         </div>
