@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 
 import SignIn from './components/SignIn'
 import NoteList from './components/notes/NoteList'
@@ -9,13 +9,13 @@ import VideoShow from './components/VideoShow'
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter>
+            <Router history={history}>
                 <div>                
                     <Route path="/" exact component={SignIn} />
                     <Route path="/notes/list" exact component={NoteList} />
                     <Route path="/videos/show" exact component={VideoShow} />
                 </div>
-            </BrowserRouter>
+            </Router>
         </div>
     )
 }
