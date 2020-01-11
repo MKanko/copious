@@ -7,7 +7,6 @@ const Header = () => {
             <Link to="/notes/list" className="item">
                 All Notes 
             </Link>
-            
         </div>
     )
 }
