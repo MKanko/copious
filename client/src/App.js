@@ -3,14 +3,14 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import SignIn from './components/SignIn'
 import NoteList from './components/notes/NoteList'
-import VideoShow from './components/videos/VideoShow'
+import VideoShow from './components/VideoShow' 
 
 
 const App = () => {
     return (
         <div className="ui container">
             <BrowserRouter>
-                <div>
+                <div>                
                     <Route path="/" exact component={SignIn} />
                     <Route path="/notes/list" exact component={NoteList} />
                     <Route path="/videos/show" exact component={VideoShow} />

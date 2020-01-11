@@ -1,11 +1,12 @@
 import React from 'react'
 
+import VideosContainer from '../containers/VideosContainer'
 
 
 const VideoShow = () => {
     return (
         <div>
-            Tutorials 
+            <VideosContainer /> 
         </div>
     )
 }
