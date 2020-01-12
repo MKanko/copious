@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router-dom'
 import history from './history'
 
 import SignIn from './components/SignIn'
-import NoteList from './components/notes/NoteList'
+import NoteList from './components/NoteList'
 import VideoShow from './components/VideoShow'
 
 

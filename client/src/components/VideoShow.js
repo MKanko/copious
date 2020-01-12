@@ -4,10 +4,10 @@ import React from 'react'
 import VideosContainer from '../containers/VideosContainer'
 
 
+
 const VideoShow = () => {
     return (
-        <div>
-            
+        <div>          
             <VideosContainer /> 
         </div>
     )
