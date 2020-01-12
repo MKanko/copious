@@ -6,12 +6,15 @@ import VideoHeader from '../components/videos/VideoHeader'
 
 
 class VideosContainer extends React.Component {
-    
+    onTermSubmit = (term) => {
+
+    }
+
     render() {
         return (
             <div>
                 <VideoHeader />
-                <SearchBar />
+                <SearchBar onFormSubmit={this.onTermSubmit}/>
             </div>
         )
     }
