@@ -6,6 +6,7 @@ import VideoHeader from '../components/videos/VideoHeader'
 
 
 class VideosContainer extends React.Component {
+    
     render() {
         return (
             <div>
