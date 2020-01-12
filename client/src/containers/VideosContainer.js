@@ -3,11 +3,17 @@ import { connect } from 'react-redux'
 
 import SearchBar from '../components/videos/SearchBar'
 import VideoHeader from '../components/videos/VideoHeader'
+import youtube from '../apis/youtube'
 
 
 class VideosContainer extends React.Component {
-    onTermSubmit = (term) => {
-
+    onTermSubmit = async (term) => {
+       const response = await youtube.get('/search', {
+           params: {
+               q: term
+           }
+       })
+     
     }
 
     render() {
