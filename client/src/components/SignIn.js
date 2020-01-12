@@ -9,9 +9,6 @@ const SignIn = () => {
                 <h2 align="center">
                     Copious
                 </h2>
-                <h4 align="center">
-                    Sign In
-                </h4>
                 <GoogleAuth />
             </div>
             

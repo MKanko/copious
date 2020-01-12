@@ -5,12 +5,15 @@ import GoogleAuth from '../GoogleAuth'
 const NoteHeader = () => {
     return (
         <div className="ui secondary pointing menu">
-            <Link to="/videos/show" className="item">
-                Videos 
-            </Link>
+            <h5>Notes</h5>
             <div className="right menu">
+                <Link to="/videos/show" className="item">
+                    Tutorials/Sign Out 
+                </Link>
+            </div>           
+            {/* <div className="right menu">
                 <GoogleAuth />
-            </div>
+            </div> */}
         </div>
     )
 }

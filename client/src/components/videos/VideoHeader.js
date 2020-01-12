@@ -5,10 +5,11 @@ import GoogleAuth from '../GoogleAuth'
 const VideoHeader = () => {
     return (
         <div className="ui secondary pointing menu">
-            <Link to="/notes/list" className="item">
-                Notes List 
-            </Link>
+            <h5>Tutorials</h5>
             <div className="right menu">
+                <Link to="/notes/list" className="item">
+                    Notes List 
+                </Link>
                 <GoogleAuth />
             </div>
         </div>
