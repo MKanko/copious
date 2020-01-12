@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { signIn, signOut } from '../actions'
+import history from '../history'
+
 
 
 class GoogleAuth extends React.Component {
@@ -21,8 +23,10 @@ class GoogleAuth extends React.Component {
     onAuthChange = (isSignedIn) => {
         if (isSignedIn) {
             this.props.signIn(this.auth.currentUser.get().getId())
+            history.push('/videos/show')
         } else {
             this.props.signOut()
+            history.push('/')
         }
     }
 

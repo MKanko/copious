@@ -2,7 +2,6 @@ import React from 'react'
 import GoogleAuth from './GoogleAuth'
 
 
-
 const SignIn = () => {
     return (
         <div className="ui placeholder segment">

@@ -7,7 +7,8 @@ class NoteList extends React.Component {
     render() {
         return (
             <div>
-                <Header /> 
+                All Notes
+                <Header />
             </div>
         )
     }
