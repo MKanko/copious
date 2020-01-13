@@ -1,4 +1,5 @@
 import React from 'react'
+import NoteDetail from '../notes/NoteDetail'
 
 
 const VideoDetail = (props) => {
@@ -13,11 +14,11 @@ const VideoDetail = (props) => {
             <div className="ui imbed">
                 <iframe title="video player" src={videoSrc} />
             </div>
-            <div className="ui segment">
+            <div className="ui grey segment">
                 <h4 className="header">{props.video.snippet.title}</h4>
                 <p>{props.video.snippet.description}</p>
             </div>
-            
+            <NoteDetail />
         </div>
     )
 }

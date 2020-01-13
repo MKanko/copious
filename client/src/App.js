@@ -9,7 +9,7 @@ import VideoShow from './components/VideoShow'
 
 const App = () => {
     return (
-        <div className="ui container">
+        <div>
             <Router history={history}>
                 <div>                
                     <Route path="/" exact component={SignIn} />

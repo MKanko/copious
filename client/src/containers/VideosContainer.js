@@ -11,6 +11,10 @@ import VideoDetail from '../components/videos/VideoDetail'
 class VideosContainer extends React.Component {
     state = { videos: [], selectedVideo: null }
 
+    componentDidMount() {
+        this.onTermSubmit('Ruby Tutorials')
+    }
+
     onTermSubmit = async (term) => {
        const response = await youtube.get('/search', {
            params: {
@@ -18,7 +22,10 @@ class VideosContainer extends React.Component {
            }
        })
 
-       this.setState({ videos: response.data.items })
+       this.setState({ 
+           videos: response.data.items,
+           selectedVideo: response.data.items[0] 
+        })
     }
 
     onVideoSelect = (video) => {
@@ -27,11 +34,20 @@ class VideosContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="ui container">
                 <VideoHeader />
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
-                <VideoDetail video={this.state.selectedVideo} />
-                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+                <div className="ui grid">
+                    <div className="row">
+                        <div className="eleven wide column">
+                            <VideoDetail video={this.state.selectedVideo} />
+                        </div>
+                        <div className="five wide column">
+                            <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+                        </div>                     
+                    </div>
+                </div>
+                               
             </div>
         )
     }
