@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 import SearchBar from '../components/videos/SearchBar'
 import VideoHeader from '../components/videos/VideoHeader'
