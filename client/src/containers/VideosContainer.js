@@ -5,6 +5,7 @@ import SearchBar from '../components/videos/SearchBar'
 import VideoHeader from '../components/videos/VideoHeader'
 import youtube from '../apis/youtube'
 import VideoList from '../components/videos/VideoList'
+import VideoDetail from '../components/videos/VideoDetail'
 
 
 class VideosContainer extends React.Component {
@@ -29,6 +30,7 @@ class VideosContainer extends React.Component {
             <div>
                 <VideoHeader />
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
+                <VideoDetail video={this.state.selectedVideo} />
                 <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
             </div>
         )
