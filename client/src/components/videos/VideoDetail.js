@@ -2,9 +2,16 @@ import React from 'react'
 
 
 const VideoDetail = (props) => {
+    if (!props.video) {
+        return <div>Loading...</div>
+    }
     return (
         <div>
-            {props.video.snippet.title}
+            <div className="ui segment">
+                <h4 className="header">{props.video.snippet.title}</h4>
+                <p>{props.video.snippet.description}</p>
+            </div>
+            
         </div>
     )
 }
