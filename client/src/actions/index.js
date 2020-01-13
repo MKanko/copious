@@ -12,3 +12,16 @@ export const signOut = () => {
     }
 }
 
+export const onTermSelect = () => {
+    return {
+        type: 'ON_TERM_SELECT',
+        payload: Response.data.items
+    }
+}
+
+export const onVideoSelect = () => {
+    return {
+        type: 'ON_VIDEO_SELECT',
+        payload: video 
+    }
+}
