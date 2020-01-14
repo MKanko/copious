@@ -13,8 +13,8 @@ class NotesController < ApplicationController
             
             render json: NoteSerializer.new(note)
         else 
-            redirect_to note 
-        end
+            redirect_to note   # ultimately should redirect to update note
+        end                    # on the front end, the save button will make post request to /notes route
     end
 
     # the conditional logic in create and show should be extracted out into private helper method 

@@ -1,3 +1,5 @@
+import youtube from '../apis/youtube'
+
 
 export const signIn = (userId) => {
     return {
@@ -12,14 +14,17 @@ export const signOut = () => {
     }
 }
 
-export const onTermSelect = () => {
-    return {
-        type: 'ON_TERM_SELECT',
-        payload: Response.data.items
-    }
+export const onTermSubmit = (term) => async dispatch => {
+    const response = await youtube.get('/search', { params: { q: term }})
+       
+    dispatch({
+        type: 'ON_TERM_SUBMIT',
+        payload: response.data.items
+    })
 }
 
-export const onVideoSelect = () => {
+
+export const onVideoSelect = (video) => {
     return {
         type: 'ON_VIDEO_SELECT',
         payload: video 
