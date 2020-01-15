@@ -2,9 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import NoteDetail from '../components/notes/NoteDetail'
+import { fetchNote } from '../actions'
 
 
 class VideoNotesContainer extends React.Component {
+
+    componentDidMount() {
+        const noteId = this.props.userId + '-' + this.props.videoId
+        this.props.fetchNote(noteId)
+    }
 
     render() {
         return (
@@ -27,4 +33,4 @@ const mapStateToProps = (state) => {
 // }
 
 
-export default connect(mapStateToProps)(VideoNotesContainer) 
+export default connect(mapStateToProps, { fetchNote })(VideoNotesContainer) 
