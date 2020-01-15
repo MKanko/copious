@@ -10,28 +10,10 @@ import { onTermSubmit, onVideoSelect } from '../actions'
 
 
 class VideosContainer extends React.Component {
-    // state = { videos: [], selectedVideo: null }
-
+    
     componentDidMount() {
         this.props.onTermSubmit('Python Tutorials')
     }
-
-    // onTermSubmit = async (term) => {
-    //    const response = await youtube.get('/search', {
-    //        params: {
-    //            q: term
-    //        }
-    //    })
-
-    //    this.setState({ 
-    //        videos: response.data.items,
-    //        selectedVideo: response.data.items[0] 
-    //     })
-    // }
-
-    // onVideoSelect = (video) => {
-    //    this.setState({ selectedVideo: video }) 
-    // }
 
     render() {
         return (
@@ -47,8 +29,7 @@ class VideosContainer extends React.Component {
                             <VideoList onVideoSelect={this.props.onVideoSelect} videos={this.props.videos} />
                         </div>                     
                     </div>
-                </div>
-                               
+                </div>                             
             </div>
         )
     }
@@ -63,6 +44,26 @@ const mapStateToProps = (state) => {
 //     onVideoSelect: video => onVideoSelect(video)
 // })
 
-export default connect(mapStateToProps, { onTermSubmit, onVideoSelect })(VideosContainer) 
+export default connect(mapStateToProps, { onTermSubmit, onVideoSelect })(VideosContainer)
+
+// state = { videos: [], selectedVideo: null }
+
+
+// onTermSubmit = async (term) => {
+    //    const response = await youtube.get('/search', {
+    //        params: {
+    //            q: term
+    //        }
+    //    })
+
+    //    this.setState({ 
+    //        videos: response.data.items,
+    //        selectedVideo: response.data.items[0] 
+    //     })
+    // }
+
+    // onVideoSelect = (video) => {
+    //    this.setState({ selectedVideo: video }) 
+    // }
 
 
