@@ -13,7 +13,7 @@ class VideosContainer extends React.Component {
     // state = { videos: [], selectedVideo: null }
 
     componentDidMount() {
-        this.props.onTermSubmit('Udemy Tutorials')
+        this.props.onTermSubmit('Python Tutorials')
     }
 
     // onTermSubmit = async (term) => {
@@ -44,7 +44,7 @@ class VideosContainer extends React.Component {
                             <VideoDetail video={this.props.videos.selectedVideo} />
                         </div>
                         <div className="five wide column">
-                            <VideoList onVideoSelect={this.onVideoSelect} videos={this.props.videos} />
+                            <VideoList onVideoSelect={this.props.onVideoSelect} videos={this.props.videos} />
                         </div>                     
                     </div>
                 </div>

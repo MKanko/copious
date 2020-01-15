@@ -3,8 +3,8 @@ import { Router, Route } from 'react-router-dom'
 import history from './history'
 
 import SignIn from './components/SignIn'
-import NoteList from './components/NoteList'
-import VideoShow from './components/VideoShow'
+import NotesContainer from './containers/NotesContainer'
+import VideosContainer from './containers/VideosContainer'
 
 
 const App = () => {
@@ -13,8 +13,8 @@ const App = () => {
             <Router history={history}>
                 <div>                
                     <Route path="/" exact component={SignIn} />
-                    <Route path="/notes/list" exact component={NoteList} />
-                    <Route path="/videos/show" exact component={VideoShow} />
+                    <Route path="/notes/list" exact component={NotesContainer} />
+                    <Route path="/videos/show" exact component={VideosContainer} />
                 </div>
             </Router>
         </div>

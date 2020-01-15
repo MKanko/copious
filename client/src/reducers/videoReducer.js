@@ -9,7 +9,7 @@ export default (state = { videos: [], selectedVideo: null }, action) => {
             return { ...state, videos: action.payload, selectedVideo: action.payload[0] }
 
         case 'ON_VIDEO_SELECT':
-            return { ...state, selectedVideo: action.payload.video }
+            return { ...state, selectedVideo: action.payload }
 
         default:
             return state 
