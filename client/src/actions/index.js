@@ -31,25 +31,28 @@ export const onVideoSelect = (video) => {
     }
 }
 
-// export const fetchVideo = () => {
-//     fetch(`localhost:3001/notes/${id}`,
-//     )
-// }
+export const fetchNote = (id) => {
+    return (dispatch) => {
+        dispatch({ type: 'LOAD_NOTE'})
+        fetch(`localhost:3001/notes/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(note => dispatch({ type: 'ADD_NOTE', payload: note })) 
+    }
+       
+}
 
+// export function fetchAstronauts() {
+//     return (dispatch) => {
+//       dispatch({ type: 'START_ADDING_ASTRONAUTS_REQUEST' });
+//       fetch('http://api.open-notify.org/astros.json')
+//         .then(response => response.json())
+//         .then(astronauts => dispatch({ type: 'ADD_ASTRONAUTS', astronauts }));
+//     };
+//   }
 
-// fetch(POKEMONS_URL, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'  
-//     },
-//     body: JSON.stringify({
-//       'trainer_id': te['id']  
-//     })
-// })
-// .then(function(response) {
-//     return response.json();
-// })
-// .then(function(json) {          
-//     ul.appendChild(displayPokemon(json));
-// })
