@@ -31,25 +31,25 @@ export const onVideoSelect = (video) => {
     }
 }
 
-export const fetchVideo = () => {
-    fetch(`localhost:3001/notes/${id}`,
-    )
-}
+// export const fetchVideo = () => {
+//     fetch(`localhost:3001/notes/${id}`,
+//     )
+// }
 
 
-fetch(POKEMONS_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'  
-    },
-    body: JSON.stringify({
-      'trainer_id': te['id']  
-    })
-})
-.then(function(response) {
-    return response.json();
-})
-.then(function(json) {          
-    ul.appendChild(displayPokemon(json));
-})
+// fetch(POKEMONS_URL, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'  
+//     },
+//     body: JSON.stringify({
+//       'trainer_id': te['id']  
+//     })
+// })
+// .then(function(response) {
+//     return response.json();
+// })
+// .then(function(json) {          
+//     ul.appendChild(displayPokemon(json));
+// })
