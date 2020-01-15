@@ -1,5 +1,5 @@
 import React from 'react'
-import NoteDetail from '../notes/NoteDetail'
+import VideoNotesContainer from '../../containers/VideoNotesContainer'
 
 
 const VideoDetail = (props) => {
@@ -19,7 +19,7 @@ const VideoDetail = (props) => {
                 <h4 className="header">{props.video.snippet.title}</h4>
                 <p>{props.video.snippet.description}</p>
             </div>
-            <NoteDetail />
+            <VideoNotesContainer />
         </div>
     )
 }
