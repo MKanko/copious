@@ -1,7 +1,7 @@
 
 
 export default (state = { videos: [], selectedVideo: null }, action) => {
-    console.log(action)
+    // console.log(action)
     switch (action.type) {
 
         case 'ON_TERM_SUBMIT':

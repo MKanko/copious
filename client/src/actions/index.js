@@ -31,10 +31,25 @@ export const onVideoSelect = (video) => {
     }
 }
 
+export const createNote = (userId, videoId) => {
+    return (dispatch) => {
+        dispatch({ type: 'CREATE_NOTE'})
+        fetch('http://localhost:3001/create/new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(note => dispatch({ type: 'CREATE_NOTE', payload: note }))
+    }
+}
+
 export const fetchNote = (id) => {
     return (dispatch) => {
         dispatch({ type: 'LOAD_NOTE'})
-        fetch(`localhost:3001/notes/${id}`, {
+        fetch(`http://localhost:3001/notes/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

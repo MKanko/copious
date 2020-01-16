@@ -5,7 +5,7 @@ import React from 'react'
 import NoteHeader from '../components/notes/NoteHeader'
 
 
-// actions sending get requests to find not,  post requests to create or update a note are actions in the actions file
+// actions sending get requests to find note,  post requests to create or update a note are actions in the actions file
 
 
 class NotesContainer extends React.Component {

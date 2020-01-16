@@ -2,20 +2,22 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import NoteDetail from '../components/notes/NoteDetail'
-import { fetchNote } from '../actions'
+import { fetchNote, createNote } from '../actions'
 
 
 class VideoNotesContainer extends React.Component {
 
-    componentDidMount() {
-        const noteId = this.props.userId + '-' + this.props.videoId
-        this.props.fetchNote(noteId)
+    componentDidUpdate(prevProps) {
+        if(this.props.userId !== prevProps.userId) {
+            const noteId = this.props.userId + '-' + this.props.videoId
+            this.props.fetchNote(noteId)
+        }      
     }
 
     render() {
         return (
             <div className="ui container">
-              <NoteDetail />                
+              <NoteDetail note={ this.props.note } />                
             </div>
         )
     }
@@ -24,7 +26,8 @@ class VideoNotesContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         userId: state.auth.userId,
-        videoId: state.videos.selectedVideo.id.videoId
+        videoId: state.videos.selectedVideo.id.videoId,
+        note: state.notes.selectedNote 
     }
 }
 
@@ -33,4 +36,4 @@ const mapStateToProps = (state) => {
 // }
 
 
-export default connect(mapStateToProps, { fetchNote })(VideoNotesContainer) 
+export default connect(mapStateToProps, { fetchNote, createNote })(VideoNotesContainer) 

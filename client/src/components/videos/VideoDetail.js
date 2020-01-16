@@ -3,7 +3,7 @@ import VideoNotesContainer from '../../containers/VideoNotesContainer'
 
 
 const VideoDetail = (props) => {
-    console.log(props)
+    // console.log(props)
     if (!props.video) {
         return <div>Loading...</div>
     }
