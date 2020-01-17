@@ -3,17 +3,7 @@ import NoteCreate from './NoteCreate'
 
 
 class NoteDetail extends React.Component {
-    constructor(props) {
-        super(props)
-
-        if (props.notes) {
-            this.state = { content: this.props.notes.selectedNote.data.attributes.content }
-        } else {
-            this.state = {content: ""}
-        }
-        console.log(props)
-        console.log(this.state)
-    }
+    state = { content: '' }
 
     onInputChange = (event) => {
         this.setState({ content: event.target.value })
@@ -22,10 +12,11 @@ class NoteDetail extends React.Component {
     render() {
         const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
 
-        const createButton = <button type="ui button" onClick={() => this.props.createNote(note)}>Create</button>
+        const createForm = <NoteCreate userId={this.props.userId} videoId={this.props.videoId} />
+        
         const saveButton = <button>Save</button>
 
-        const renderButton = (this.props.note && this.props.note.data) ? saveButton : <NoteCreate />
+        const renderButton = (this.props.note && this.props.note.data) ? saveButton : createForm 
 
         return (
             <div className="ui grey segment">
