@@ -43,12 +43,12 @@ class NoteForm extends React.Component {
     }   
 }
 
+const validate = (formValues) => {
+    const errors = {}
+    if (!formValues.content) {
+        errors.content = 'You must enter notes'
+    }
+    return errors 
+}
 
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         createStream: (formValues) => dispatch(createStream(formValues))
-//     }
-// }
-
-export default reduxForm({ form: 'NoteForm' })(NoteForm)
+export default reduxForm({ form: 'NoteForm', validate: validate })(NoteForm)
