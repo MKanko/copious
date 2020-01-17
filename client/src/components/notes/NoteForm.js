@@ -4,6 +4,16 @@ import { Field, reduxForm } from 'redux-form'
 
 class NoteForm extends React.Component {
 
+    renderError = (formProps) => {      
+        if (formProps.meta.touched && formProps.meta.error) { 
+            return (
+                <div className="ui error message">
+                    <div className="header">{formProps.meta.error}</div>
+                </div>
+            )
+        }       
+    }
+
     renderInput = (formProps) => {
         const className = `field ${formProps.meta.touched && formProps.meta.error ? 'error' : ''}`
         //console.log(formProps)
@@ -16,7 +26,9 @@ class NoteForm extends React.Component {
         )
     }
 
-    
+    onSubmit = (formValues) => {
+        this.props.onSubmit(formValues)           
+    }
 
     render() {
         return (
