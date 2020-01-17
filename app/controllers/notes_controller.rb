@@ -42,7 +42,7 @@ class NotesController < ApplicationController
     def update
         note = Note.find(params[:id])
         # note = Note.find_by(user_id: params[:user_id], video_id: params[:video_id])
-        note.update(content: params[:content])
+        note.update(content: params[:noteContent])
 
         render json: NoteSerializer.new(note)
     end 

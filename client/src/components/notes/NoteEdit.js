@@ -1,5 +1,5 @@
 import React from 'react'
-import _ from lodash 
+import _ from 'lodash' 
 import { connect } from 'react-redux'
 import { editNote } from '../../actions'
 import NoteForm from './NoteForm'
@@ -7,7 +7,7 @@ import NoteForm from './NoteForm'
 class NoteEdit extends React.Component {
 
     onSubmit = (formValues) => {
-        this.props.editNote(this.props.match.params.id, formValues)
+        this.props.editNote(this.props.note.data.id, { ...formValues, videoId: this.props.videoId, userId: this.props.userId })
     }
     
     render() {
@@ -21,16 +21,14 @@ class NoteEdit extends React.Component {
         return (
             <div>
                 {/* <h3>Edit a Stream</h3> */}
-               <NoteForm onSubmit={this.onSubmit} initialValues={_.pick(this.props.note, 'content')} /> 
+               <NoteForm onSubmit={this.onSubmit} initialValues={_.pick(this.props.note.data.attributes, 'content')} /> 
             </div>
         )
     }                          
 }                 
 
-
-
-
 const mapStateToProps = (state) => {
-    return { note: state.notes.selectedNote } // see note below 
+    return { note: state.notes.selectedNote }  
 }
+
 export default connect(mapStateToProps, { editNote })(NoteEdit)

@@ -49,11 +49,11 @@ export const createNote = (note) => {
     }
 }
 
-export const editNote = (note) => {
+export const editNote = (noteId, note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
     return (dispatch) => {
         dispatch({ type: 'EDIT_NOTE'})
-        fetch(`http://localhost:3001/notes/${note.id}`, {
+        fetch(`http://localhost:3001/notes/${noteId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

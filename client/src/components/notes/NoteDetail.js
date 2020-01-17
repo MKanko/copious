@@ -1,5 +1,6 @@
 import React from 'react'
 import NoteCreate from './NoteCreate'
+import NoteEdit from './NoteEdit'
 
 
 class NoteDetail extends React.Component {
@@ -10,9 +11,9 @@ class NoteDetail extends React.Component {
 
         const createForm = <NoteCreate userId={this.props.userId} videoId={this.props.videoId} />
         
-        const saveButton = <button>Save</button>
+        const editForm = <NoteEdit userId={this.props.userId} videoId={this.props.videoId} />
 
-        const renderButton = (this.props.note && this.props.note.data) ? saveButton : createForm 
+        const renderButton = (this.props.note && this.props.note.data) ? editForm : createForm 
 
         return (
             <div className="ui grey segment">
