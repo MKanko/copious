@@ -4,6 +4,18 @@ import { Field, reduxForm } from 'redux-form'
 
 class NoteForm extends React.Component {
 
+    renderInput = (formProps) => {
+        const className = `field ${formProps.meta.touched && formProps.meta.error ? 'error' : ''}`
+        //console.log(formProps)
+        return (
+            <div className={className}> 
+                <label>{formProps.label}</label>
+                <textarea {...formProps.input} autoComplete="off" />
+                {this.renderError(formProps)}
+            </div>
+        )
+    }
+
     
 
     render() {
