@@ -49,6 +49,23 @@ export const createNote = (note) => {
     }
 }
 
+export const editNote = (note) => {
+    const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
+    return (dispatch) => {
+        dispatch({ type: 'EDIT_NOTE'})
+        fetch(`http://localhost:3001/notes/${note.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: params
+        })
+        .then(response => response.json())
+        .then(note => dispatch({ type: 'EDIT_NOTE', payload: note }))
+    }
+}
+
 // var url = new URL('https://sl.se')
 
 // var params = {lat:35.696233, long:139.570431} // or:
