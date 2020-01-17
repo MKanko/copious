@@ -32,8 +32,8 @@ export const onVideoSelect = (video) => {
 }
 
 export const createNote = (note) => {
-    const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.noteContent })
-
+    const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
+    debugger
     return (dispatch) => {
         dispatch({ type: 'CREATE_NOTE'})
         fetch('http://localhost:3001/notes', {

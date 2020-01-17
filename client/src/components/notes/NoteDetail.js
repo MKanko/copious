@@ -1,4 +1,5 @@
 import React from 'react'
+import NoteCreate from './NoteCreate'
 
 
 class NoteDetail extends React.Component {
@@ -24,18 +25,18 @@ class NoteDetail extends React.Component {
         const createButton = <button type="ui button" onClick={() => this.props.createNote(note)}>Create</button>
         const saveButton = <button>Save</button>
 
-        const renderButton = (this.props.note && this.props.note.data) ? saveButton : createButton
+        const renderButton = (this.props.note && this.props.note.data) ? saveButton : <NoteCreate />
 
         return (
             <div className="ui grey segment">
                 <div className="ui form">
                     <div className="field">
                         <label>Tutorial Notes</label>
-                        <textarea 
+                        {/* <textarea 
                             type="text" 
                             value={this.state.content} 
                             onChange={this.onInputChange} 
-                        ></textarea>
+                        ></textarea> */}
                         {renderButton}
                     </div>
                 </div>                          

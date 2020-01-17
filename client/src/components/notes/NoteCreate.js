@@ -5,6 +5,7 @@ import NoteForm from './NoteForm'
 
 
 class NoteCreate extends React.Component {
+    
     onSubmit = (formValues) => {
         this.props.createNote(formValues)
     }

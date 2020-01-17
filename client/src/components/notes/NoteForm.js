@@ -36,7 +36,7 @@ class NoteForm extends React.Component {
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
                     <Field name="content" component={this.renderInput} label="Write Notes" />
                    
-                    <button className="ui button primary">Submit</button>
+                    <button className="ui button primary">Save Notes</button>
                 </form>
             </div>
         )
