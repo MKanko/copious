@@ -9,7 +9,7 @@ export default (state = { notes: [], selectedNote: null, requesting: false }, ac
             return { ...state, selectedNote: action.payload, requesting: false }
 
         case 'CREATE_NOTE':
-            return { ...state, createNote: action.payload }
+            return { ...state, selectedNote: action.payload }
 
         default:
             return state 

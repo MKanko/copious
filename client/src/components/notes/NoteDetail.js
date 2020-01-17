@@ -6,7 +6,7 @@ class NoteDetail extends React.Component {
     
 
     render() {
-        const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
+        // const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
 
         const createForm = <NoteCreate userId={this.props.userId} videoId={this.props.videoId} />
         
