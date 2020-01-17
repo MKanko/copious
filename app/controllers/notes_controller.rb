@@ -6,12 +6,13 @@ class NotesController < ApplicationController
         render json: NoteSerializer.new(note)
     end
     
-    def create 
-        note = Note.create(user_id: params[:user_id], date: Time.now, title: params[:title], 
-        content: params[:content], video_id: params[:video_id])
+    def create
+        #binding.pry 
+        note = Note.create(user_id: params[:userId], date: Time.now, title: params[:title], 
+        content: params[:noteContent], video_id: params[:videoId])
 
-        note.update_column(:id, note.user_id + '-' + note.video_id)
-
+        # note.update_column(:id, note.user_id + '-' + note.video_id)
+        # binding.pry
         render json: NoteSerializer.new(note)
     end 
 #                                                            # content: params[:content]
@@ -30,11 +31,11 @@ class NotesController < ApplicationController
     # use before action to dry up the code.
     # use strong params?
 
-    def show
-        # if !(note = Note.find_by(user_id: params[:user_id], video_id: params[:video_id]))
-            note = Note.find(params[:id])
-        # end 
-
+    def show  
+        if !(note = Note.find_by(user_id: params[:userId], video_id: params[:videoId]))
+            note = Note.find_by(id: params[:id])
+        end 
+        #binding.pry 
         render json: NoteSerializer.new(note)
     end
     

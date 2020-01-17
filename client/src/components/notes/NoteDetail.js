@@ -1,26 +1,52 @@
 import React from 'react'
 
 
-const NoteDetail = (props) => {
-    const createButton = <button>Create</button>
-    const saveButton = <button>Save</button>
+class NoteDetail extends React.Component {
+    constructor(props) {
+        super(props)
 
-    const renderButton = (props.note && props.note.data) ? saveButton : createButton 
-    // console.log(props)
-    //a function that checks props to see if note exists to determine which button to display
-    // the logic involved in searching db for note will be in notesContainers and passed to noteDetail as props
-    return (
-        <div className="ui grey segment">
-            <form className="ui form">
-                <div className="field">
-                    <label>Tutorial Notes</label>
-                    <textarea></textarea>
-                    {renderButton}
-                </div>               
-            </form>
-        </div>
-    )
+        if (props.notes) {
+            this.state = { content: this.props.notes.selectedNote.data.attributes.content }
+        } else {
+            this.state = {content: ""}
+        }
+        console.log(props)
+        console.log(this.state)
+    }
+
+    onInputChange = (event) => {
+        this.setState({ content: event.target.value })
+    }
+
+    render() {
+        const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
+
+        const createButton = <button type="ui button" onClick={() => this.props.createNote(note)}>Create</button>
+        const saveButton = <button>Save</button>
+
+        const renderButton = (this.props.note && this.props.note.data) ? saveButton : createButton
+
+        return (
+            <div className="ui grey segment">
+                <div className="ui form">
+                    <div className="field">
+                        <label>Tutorial Notes</label>
+                        <textarea 
+                            type="text" 
+                            value={this.state.content} 
+                            onChange={this.onInputChange} 
+                        ></textarea>
+                        {renderButton}
+                    </div>
+                </div>                          
+            </div>
+        )
+    }
 }
 
 
 export default NoteDetail
+
+// console.log(props)
+//a function that checks props to see if note exists to determine which button to display
+// the logic involved in searching db for note will be in notesContainers and passed to noteDetail as props

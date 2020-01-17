@@ -8,16 +8,17 @@ import { fetchNote, createNote } from '../actions'
 class VideoNotesContainer extends React.Component {
 
     componentDidUpdate(prevProps) {
-        if(this.props.userId !== prevProps.userId) {
-            const noteId = this.props.userId + '-' + this.props.videoId
-            this.props.fetchNote(noteId)
+        if(this.props.userId !== prevProps.userId || this.props.videoId !== prevProps.videoId) {
+            // const noteId = this.props.userId + '-' + this.props.videoId
+            this.props.fetchNote(this.props.userId, this.props.videoId)
         }      
     }
 
     render() {
         return (
             <div className="ui container">
-              <NoteDetail note={ this.props.note } />                
+              <NoteDetail note={ this.props.note } createNote={this.props.createNote} 
+              userId={this.props.userId} videoId={this.props.videoId} />                
             </div>
         )
     }
