@@ -3,11 +3,7 @@ import NoteCreate from './NoteCreate'
 
 
 class NoteDetail extends React.Component {
-    state = { content: '' }
-
-    onInputChange = (event) => {
-        this.setState({ content: event.target.value })
-    }
+    
 
     render() {
         const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
@@ -23,11 +19,6 @@ class NoteDetail extends React.Component {
                 <div className="ui form">
                     <div className="field">
                         <label>Tutorial Notes</label>
-                        {/* <textarea 
-                            type="text" 
-                            value={this.state.content} 
-                            onChange={this.onInputChange} 
-                        ></textarea> */}
                         {renderButton}
                     </div>
                 </div>                          
