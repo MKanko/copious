@@ -1,5 +1,6 @@
 import React from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import { fetchNotes } from '../actions'
 
 
 import NoteHeader from '../components/notes/NoteHeader'
@@ -18,5 +19,9 @@ class NotesContainer extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return { notes: state.notes.notes }
+}
 
-export default NotesContainer 
+
+export default connect(mapStateToProps, { fetchNotes })(NotesContainer) 

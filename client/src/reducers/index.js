@@ -5,9 +5,6 @@ import noteReducer from './noteReducer'
 import { reducer as formReducer } from 'redux-form'
 
 
-
-
-
 const appReducer = combineReducers({
     auth: authReducer,
     videos: videoReducer,
