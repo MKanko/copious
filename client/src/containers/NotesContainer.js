@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import { fetchNotes } from '../actions'
-
-
 import NoteHeader from '../components/notes/NoteHeader'
 
 
@@ -10,6 +9,11 @@ import NoteHeader from '../components/notes/NoteHeader'
 
 
 class NotesContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.fetchNotes()
+    }
+
     render() {
         return (
             <div className="ui container">

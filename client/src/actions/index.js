@@ -85,9 +85,9 @@ export const fetchNotes = () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
-            .then(response => response.json())
-            .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
         })
+        .then(response => response.json())
+        .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
     }
 }
 
