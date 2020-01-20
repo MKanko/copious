@@ -13,7 +13,7 @@ class NoteCreate extends React.Component {
         return (
             <div>
                 {/* <h3>Create a Stream</h3> */}
-                <NoteForm onSubmit={this.onSubmit} />
+                <NoteForm buttonText={'Create Note'} onSubmit={this.onSubmit} />
             </div>
         )
     }   

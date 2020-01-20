@@ -1,13 +1,18 @@
-import React from 'react'
-import _ from 'lodash' 
+import React from 'react' 
 import { connect } from 'react-redux'
-import { editNote } from '../../actions'
+import { editNote, fetchNote } from '../../actions'
 import NoteForm from './NoteForm'
+
 
 class NoteEdit extends React.Component {
 
+    // componentDidMount() {
+    //     this.props.fetchNote(this.props.userId, this.props.videoId)
+    // }
+
     onSubmit = (formValues) => {
-        this.props.editNote(this.props.note.data.id, { ...formValues, videoId: this.props.videoId, userId: this.props.userId })
+        this.props.editNote(this.props.note.data.id, { ...formValues, videoId: this.props.videoId, 
+            userId: this.props.userId })
     }
     
     render() {
@@ -18,17 +23,20 @@ class NoteEdit extends React.Component {
                 </div>
             )
         }
+    console.log('note edit render')
+    console.log(this.props)
+    // alert(_.pick(this.props.note.data.attributes, 'content').content)
         return (
             <div>
                 {/* <h3>Edit a Stream</h3> */}
-               <NoteForm onSubmit={this.onSubmit} initialValues={_.pick(this.props.note.data.attributes, 'content')} /> 
+               <NoteForm buttonText={'Edit Note'} onSubmit={this.onSubmit} initialValues={{ content: this.props.note.data.attributes.content }} /> 
             </div>
         )
     }                          
 }                 
 
-const mapStateToProps = (state) => {
-    return { note: state.notes.selectedNote }  
-}
+// const mapStateToProps = (state) => {
+//     return { note: state.notes.selectedNote }  
+// }
 
-export default connect(mapStateToProps, { editNote })(NoteEdit)
+export default connect(null, { editNote, fetchNote })(NoteEdit)

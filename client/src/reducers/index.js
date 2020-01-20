@@ -6,9 +6,21 @@ import { reducer as formReducer } from 'redux-form'
 
 
 
-export default combineReducers({
+
+
+const appReducer = combineReducers({
     auth: authReducer,
     videos: videoReducer,
     notes: noteReducer,
-    form: formReducer  
-})
+    form: formReducer 
+  })
+  
+const rootReducer = (state, action) => {
+    if (action.type === 'SIGN_OUT') {
+      state = undefined
+    }
+  
+    return appReducer(state, action)
+  }
+
+export default rootReducer 

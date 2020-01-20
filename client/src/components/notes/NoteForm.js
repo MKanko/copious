@@ -16,7 +16,7 @@ class NoteForm extends React.Component {
 
     renderInput = (formProps) => {
         const className = `field ${formProps.meta.touched && formProps.meta.error ? 'error' : ''}`
-        //console.log(formProps)
+        console.log(formProps)
         return (
             <div className={className}> 
                 <label>{formProps.label}</label>
@@ -31,12 +31,13 @@ class NoteForm extends React.Component {
     }
 
     render() {
+        console.log('noteForm has rendered')
         return (
             <div>
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
                     <Field name="content" component={this.renderInput} label="Write Notes" />
                    
-                    <button className="ui button primary">Save Notes</button>
+                    <button className="ui button primary">{this.props.buttonText}</button>
                 </form>
             </div>
         )
@@ -51,4 +52,4 @@ const validate = (formValues) => {
     return errors 
 }
 
-export default reduxForm({ form: 'NoteForm', validate: validate })(NoteForm)
+export default reduxForm({ form: 'NoteForm', validate: validate, enableReinitialize: true })(NoteForm)

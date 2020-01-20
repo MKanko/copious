@@ -7,8 +7,13 @@ import { fetchNote } from '../actions'
 
 class VideoNotesContainer extends React.Component {
 
+    componentDidMount() {
+        this.props.fetchNote(this.props.userId, this.props.videoId) 
+    }
+
     componentDidUpdate(prevProps) {
         if(this.props.userId !== prevProps.userId || this.props.videoId !== prevProps.videoId) {
+            console.log('fetch ran')
             // const noteId = this.props.userId + '-' + this.props.videoId
             this.props.fetchNote(this.props.userId, this.props.videoId)
         }      
@@ -17,7 +22,7 @@ class VideoNotesContainer extends React.Component {
     render() {
         return (
             <div className="ui container">
-              <NoteDetail note={ this.props.note } userId={this.props.userId} videoId={this.props.videoId} />                
+              <NoteDetail note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} />                
             </div>
         )
     }
@@ -30,10 +35,5 @@ const mapStateToProps = (state) => {
         note: state.notes.selectedNote 
     }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-
-// }
-
 
 export default connect(mapStateToProps, { fetchNote })(VideoNotesContainer) 

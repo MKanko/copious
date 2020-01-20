@@ -4,14 +4,14 @@ import NoteEdit from './NoteEdit'
 
 
 class NoteDetail extends React.Component {
-    
+
 
     render() {
         // const note = { userId: this.props.userId, videoId: this.props.videoId, noteContent: this.state.content }
 
         const createForm = <NoteCreate userId={this.props.userId} videoId={this.props.videoId} />
         
-        const editForm = <NoteEdit userId={this.props.userId} videoId={this.props.videoId} />
+        const editForm = <NoteEdit note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} />
 
         const renderButton = (this.props.note && this.props.note.data) ? editForm : createForm 
 
