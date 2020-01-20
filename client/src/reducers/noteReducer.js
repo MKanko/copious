@@ -14,6 +14,9 @@ export default (state = { notes: [], selectedNote: null, requesting: false }, ac
         case 'EDIT_NOTE':
             return { ...state, selecetdNote: action.payload }
 
+        case 'ADD_NOTES':
+            return { ...state, notes: action.payload }
+
         default:
             return state 
     }

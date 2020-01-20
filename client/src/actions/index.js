@@ -70,12 +70,25 @@ export const fetchNote = (userId, videoId) => {
     const params = { videoId, userId }
     url.search = new URLSearchParams(params).toString()
     return (dispatch) => {
-        // dispatch({ type: 'LOAD_NOTE'})
+        // dispatch({ type: 'LOAD_NOTE' })
         fetch(url)
         .then(response => response.json())
         .then(note => dispatch({ type: 'ADD_NOTE', payload: note })) 
+    }      
+}
+
+export const fetchNotes = () => {
+    return (dispatch) => {
+        fetch('http://localhost:3001/notes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+            .then(response => response.json())
+            .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
+        })
     }
-       
 }
 
 
