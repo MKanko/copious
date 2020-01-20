@@ -22,7 +22,7 @@ class VideoNotesContainer extends React.Component {
     render() {
         return (
             <div className="ui container">
-              <NoteDetail note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} />                
+              <NoteDetail note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} videoTitle={this.props.videoTitle} />                
             </div>
         )
     }
@@ -32,7 +32,8 @@ const mapStateToProps = (state) => {
     return {
         userId: state.auth.userId,
         videoId: state.videos.selectedVideo.id.videoId,
-        note: state.notes.selectedNote 
+        note: state.notes.selectedNote,
+        videoTitle: state.videos.selectedVideo.snippet.title  
     }
 }
 

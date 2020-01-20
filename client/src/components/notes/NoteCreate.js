@@ -7,7 +7,7 @@ import NoteForm from './NoteForm'
 class NoteCreate extends React.Component {
 
     onSubmit = (formValues) => {
-        this.props.createNote({ ...formValues, videoId: this.props.videoId, userId: this.props.userId })
+        this.props.createNote({ ...formValues, videoId: this.props.videoId, userId: this.props.userId, title: this.props.videoTitle })
     }
     render() {
         return (

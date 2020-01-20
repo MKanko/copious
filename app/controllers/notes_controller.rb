@@ -8,7 +8,7 @@ class NotesController < ApplicationController
     
     def create
         #binding.pry 
-        note = Note.create(user_id: params[:userId], date: Time.now, title: params[:title], 
+        note = Note.create(user_id: params[:userId], date: Time.now, title: params[:videoTitle], 
         content: params[:noteContent], video_id: params[:videoId])
 
         # note.update_column(:id, note.user_id + '-' + note.video_id)

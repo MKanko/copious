@@ -19,14 +19,17 @@ class NotesContainer extends React.Component {
         return (
             <div className="ui container">
                 <NoteHeader /> 
-                <NoteList notes={this.props.notes} /> 
+                <NoteList notes={this.props.notes} userId={this.props.userId} /> 
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { notes: state.notes.notes }
+    return { 
+        notes: state.notes.notes, 
+        userId: state.auth.userId 
+    }
 }
 
 
