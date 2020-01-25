@@ -1,12 +1,13 @@
 import React from 'react'
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
-const NoteItem = () => {
+const NoteItem = (props) => {
+    console.log(props)
     return (
         <div>
-            Note Item 
+            <Link to={`/notes/${props.note.id}`}>{props.note.attributes.title}</Link> 
         </div>
     )
 }
