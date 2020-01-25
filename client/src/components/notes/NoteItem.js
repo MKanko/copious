@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const NoteItem = (props) => {
     console.log(props)
     return (
-        <div>
+        <div className="ui tertiary center aligned segment">
             <Link to={`/notes/${props.note.id}`}>{props.note.attributes.title}</Link> 
         </div>
     )
