@@ -1,22 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import GoogleAuth from '../GoogleAuth'
+import SearchBar from './SearchBar'
 
-const VideoHeader = () => {
+const VideoHeader = (props) => {
     return (
-        <div className="ui secondary pointing menu">
-            <h5>Tutorials</h5>
-            {/* <div className="ui category search item">
-                <div className="ui transparent icon input">
-                    <input class="prompt" type="text" placeholder="Search Videos" />
-                    <i class="search link icon"></i> 
+        <div className="ui secondary pointing mini menu">
+            <div className="ui large header item">Copious</div>                     
+            <SearchBar onFormSubmit={props.onFormSubmit} />
+            <div className="right menu">     
+                <div className="ui large item">        
+                    <Link to="/notes/list" className="ui medium header item">
+                        Notes List 
+                    </Link>
                 </div>
-            </div> */}
-            <div className="right menu">
-                <Link to="/notes/list" className="item">
-                    Notes List 
-                </Link>
-                <GoogleAuth />
+                <div className="ui large item">
+                    <GoogleAuth />
+                </div>
             </div>
         </div>
     )
