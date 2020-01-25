@@ -28,7 +28,6 @@ class NoteEdit extends React.Component {
     // alert(_.pick(this.props.note.data.attributes, 'content').content)
         return (
             <div>
-                {/* <h3>Edit a Stream</h3> */}
                <NoteForm buttonText={'Edit Note'} onSubmit={this.onSubmit} initialValues={{ content: this.props.note.data.attributes.content }} /> 
             </div>
         )
