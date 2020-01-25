@@ -31,11 +31,15 @@ class NotesController < ApplicationController
     # use before action to dry up the code.
     # use strong params?
 
-    def show  
-        if !(note = Note.find_by(user_id: params[:userId], video_id: params[:videoId]))
-            note = Note.find_by(id: params[:id])
-        end 
-        #binding.pry 
+    def show_video_note
+        note = Note.find_by(user_id: params[:userId], video_id: params[:videoId])
+        
+        render json: NoteSerializer.new(note)
+    end
+
+    def show         
+        note = Note.find_by(id: params[:id])
+    
         render json: NoteSerializer.new(note)
     end
     
