@@ -13,14 +13,14 @@ class NoteDetail extends React.Component {
         
         const editForm = <NoteEdit note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} />
 
-        const renderButton = (this.props.note && this.props.note.data) ? editForm : createForm 
+        const renderForm = (this.props.note && this.props.note.data) ? editForm : createForm 
 
         return (
             <div className="ui grey segment">
                 <div className="ui form">
                     <div className="field">
-                        <label>Tutorial Notes</label>
-                        {renderButton}
+                        <label></label>
+                        {renderForm}
                     </div>
                 </div>                          
             </div>
