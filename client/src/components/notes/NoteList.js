@@ -18,11 +18,16 @@ const NoteList = (props) => {
     }
      
     return (
-        <div>
-                {renderNotes}
-        </div>
+        <div>{renderNotes}</div>
     )
 }
 
 
 export default NoteList 
+
+
+
+
+
+
+
