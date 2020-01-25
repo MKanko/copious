@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import SearchBar from '../components/videos/SearchBar'
 import VideoHeader from '../components/videos/VideoHeader'
-// import youtube from '../apis/youtube'
 import VideoList from '../components/videos/VideoList'
 import VideoDetail from '../components/videos/VideoDetail'
 import { onTermSubmit, onVideoSelect } from '../actions'
@@ -12,14 +11,14 @@ import { onTermSubmit, onVideoSelect } from '../actions'
 class VideosContainer extends React.Component {
     
     componentDidMount() {
-        this.props.onTermSubmit('Python Tutorials')
+        const title = this.props.location.state ? this.props.location.state.title : 'Guitar Lessons'
+        this.props.onTermSubmit(title)
     }
 
     render() {
         return (
             <div className="ui container">
-                <VideoHeader />
-                <SearchBar onFormSubmit={this.props.onTermSubmit} />
+                <VideoHeader onFormSubmit={this.props.onTermSubmit} />
                 <div className="ui grid">
                     <div className="row">
                         <div className="eleven wide column">
