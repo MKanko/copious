@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 
+
 class NoteForm extends React.Component {
 
     renderError = (formProps) => {      
@@ -35,8 +36,7 @@ class NoteForm extends React.Component {
         return (
             <div>
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
-                    <Field name="content" component={this.renderInput} label="Write Notes" />
-                   
+                    <Field name="content" component={this.renderInput} label="Write Copious Notes" />                 
                     <button className="ui button primary">{this.props.buttonText}</button>
                 </form>
             </div>
@@ -51,5 +51,7 @@ const validate = (formValues) => {
     }
     return errors 
 }
+
+
 
 export default reduxForm({ form: 'NoteForm', validate: validate, enableReinitialize: true })(NoteForm)
