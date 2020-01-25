@@ -66,14 +66,32 @@ export const editNote = (noteId, note) => {
 }
 
 export const fetchNote = (userId, videoId) => {
-    const url = new URL('http://localhost:3001/notes/note')
+    const url = new URL('http://localhost:3001/video-note')
     const params = { videoId, userId }
     url.search = new URLSearchParams(params).toString()
     return (dispatch) => {
         // dispatch({ type: 'LOAD_NOTE' })
         fetch(url)
         .then(response => response.json())
-        .then(note => dispatch({ type: 'ADD_NOTE', payload: note })) 
+        .then(note => dispatch({ type: 'ADD_VIDEO_NOTE', payload: note })) 
+    }      
+}
+
+export const getNote = (noteId) => {
+     
+    // const url = `http://localhost:3001/notes/${noteId}`   
+    return (dispatch) => {     
+        fetch(`http://localhost:3001/notes/${noteId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(note => {  
+            dispatch({ type: 'ADD_NOTE', payload: note })
+        }) 
     }      
 }
 
