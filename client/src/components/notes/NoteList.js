@@ -18,7 +18,7 @@ const NoteList = (props) => {
     }
      
     return (
-        <div>{renderNotes}</div>
+        <div className="ui text container">{renderNotes}</div>
     )
 }
 
