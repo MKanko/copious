@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
                                 type="text"
                                 value={this.state.term}
                                 onChange={this.onInputChange}
-                                placeHolder="Search Tutorials" 
+                                placeholder="Search Tutorials" 
                             />
                             <i className="search link icon"></i>
                         </div>                       
