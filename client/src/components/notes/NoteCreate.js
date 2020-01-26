@@ -12,7 +12,7 @@ class NoteCreate extends React.Component {
     render() {
         return (
             <div>
-                <NoteForm buttonText={'Create Note'} onSubmit={this.onSubmit} />
+                <NoteForm buttonText={'Create Note'} onSubmit={this.onSubmit} initialValues={{ content: "" }} />
             </div>
         )
     }   
