@@ -9,7 +9,7 @@ const NoteList = (props) => {
 
     if (props.notes.data) {
         selectedNotes = props.notes.data.filter((note) => {
-            return note.userId !== props.userId 
+            return note.attributes.user_id === props.userId                
         })
 
         renderNotes = selectedNotes.map((note) => {
