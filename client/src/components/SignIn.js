@@ -1,11 +1,11 @@
 import React from 'react'
 import GoogleAuth from './GoogleAuth'
-import './SignIn.css'
+
 
 
 const SignIn = () => {
     return (
-        <div className="ui container">
+        <div className="ui container signin">      
             <div className="ui placeholder segment">
                 <div>
                     <h2 align="center">
@@ -13,7 +13,7 @@ const SignIn = () => {
                     </h2>
                     <GoogleAuth />
                 </div>      
-            </div>
+            </div>      
         </div>
     )
 }
