@@ -36,7 +36,7 @@ class NoteForm extends React.Component {
         return (
             <div>
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
-                    <Field name="content" component={this.renderInput} label="Write Copious Notes" />                 
+                    <Field name="content" component={this.renderInput} label="Make Copious Notes" />                 
                     <button className="ui button primary">{this.props.buttonText}</button>
                 </form>
             </div>
@@ -54,4 +54,4 @@ const validate = (formValues) => {
 
 
 
-export default reduxForm({ form: 'NoteForm', validate: validate, enableReinitialize: true })(NoteForm)
+export default reduxForm({ form: 'NoteForm', validate: validate, enableReinitialize: true, destroyOnUnmount: false })(NoteForm)
