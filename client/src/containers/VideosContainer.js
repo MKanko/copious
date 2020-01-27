@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import SearchBar from '../components/videos/SearchBar'
 import VideoHeader from '../components/videos/VideoHeader'
 import VideoList from '../components/videos/VideoList'
 import VideoDetail from '../components/videos/VideoDetail'

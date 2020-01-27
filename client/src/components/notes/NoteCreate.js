@@ -22,4 +22,5 @@ const mapDispatchToProps = (dispatch) => {
         createNote: (formValues) => dispatch(createNote(formValues))
     }
 }
+
 export default connect(null, mapDispatchToProps)(NoteCreate)

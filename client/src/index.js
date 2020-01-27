@@ -14,6 +14,10 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 )
 
+// composeEnhancers is Redux dev tools
+// middleware - reduxThunk allows to run async functions that return actions that get dispatched to the reducers
+// to update the store the the async function returns the action object. 
+
 ReactDOM.render(
     <Provider store={store}>
         <App />

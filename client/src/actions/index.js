@@ -77,8 +77,7 @@ export const fetchNote = (userId, videoId) => {
     }      
 }
 
-export const getNote = (noteId) => {
-     
+export const getNote = (noteId) => { 
     // const url = `http://localhost:3001/notes/${noteId}`   
     return (dispatch) => {     
         fetch(`http://localhost:3001/notes/${noteId}`, {
@@ -108,6 +107,8 @@ export const fetchNotes = () => {
         .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
     }
 }
+
+
 
 
 

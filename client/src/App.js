@@ -10,7 +10,7 @@ import NoteShow from './components/notes/NoteShow'
 
 const App = () => {
     return (
-        <div className="ui container" style={{ padding: '50px'}}>
+        <div className="ui container" style={{ padding: '20px'}} >
             <div className="ui segment" style={{ backgroundColor: '#D1D1D1' }}>
                 <Router history={history}>
                     <Switch>                
@@ -29,3 +29,7 @@ const App = () => {
 export default App 
 
 
+// custom history object allows us to send a user (history.push) to other path
+
+// Switch allows for in the above routes, two routes contain 'notes' and switch prevents both components from 
+// being displayed unintentionally.
