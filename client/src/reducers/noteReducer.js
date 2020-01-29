@@ -1,11 +1,9 @@
-
 export default (state = { notes: [], selectedNote: null, requesting: false }, action) => {
     switch (action.type) {
         case 'LOAD_NOTE':
             return { ...state, requesting: true }
 
         case 'ADD_VIDEO_NOTE':
-            // debugger 
             return { ...state, selectedNote: action.payload, requesting: false }
 
         case 'CREATE_NOTE':

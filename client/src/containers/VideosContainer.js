@@ -37,31 +37,8 @@ const mapStateToProps = (state) => {
     return { videos: state.videos }
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-//     onTermSubmit: term => onTermSubmit(term),
-//     onVideoSelect: video => onVideoSelect(video)
-// })
-
 export default connect(mapStateToProps, { onTermSubmit, onVideoSelect })(VideosContainer)
 
-// state = { videos: [], selectedVideo: null }
 
-
-// onTermSubmit = async (term) => {
-    //    const response = await youtube.get('/search', {
-    //        params: {
-    //            q: term
-    //        }
-    //    })
-
-    //    this.setState({ 
-    //        videos: response.data.items,
-    //        selectedVideo: response.data.items[0] 
-    //     })
-    // }
-
-    // onVideoSelect = (video) => {
-    //    this.setState({ selectedVideo: video }) 
-    // }
 
 

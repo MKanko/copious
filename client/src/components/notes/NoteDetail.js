@@ -17,7 +17,7 @@ class NoteDetail extends React.Component {
                             note={this.props.note} 
                             userId={this.props.userId} 
                             videoId={this.props.videoId} 
-                            />
+                        />
         const renderForm = (this.props.note && this.props.note.data) ? editForm : createForm 
 
         return (
@@ -35,6 +35,3 @@ class NoteDetail extends React.Component {
 
 export default NoteDetail
 
-// console.log(props)
-//a function that checks props to see if note exists to determine which button to display
-// the logic involved in searching db for note will be in notesContainers and passed to noteDetail as props

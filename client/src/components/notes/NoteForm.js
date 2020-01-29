@@ -17,7 +17,7 @@ class NoteForm extends React.Component {
 
     renderInput = (formProps) => {
         const className = `field ${formProps.meta.touched && formProps.meta.error ? 'error' : ''}`
-        console.log(formProps)
+        console.log(formProps)                // if the input field renders as error the box will be red
         return (
             <div className={className}> 
                 <label>{formProps.label}</label>
@@ -33,6 +33,7 @@ class NoteForm extends React.Component {
 
     render() {
         console.log('noteForm has rendered')
+        
         return (
             <div>
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
@@ -55,3 +56,6 @@ const validate = (formValues) => {
 
 
 export default reduxForm({ form: 'NoteForm', validate: validate, enableReinitialize: true, destroyOnUnmount: false })(NoteForm)
+
+
+ //    might have used enableReinitialize to try to fix the bome bug

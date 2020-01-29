@@ -53,6 +53,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getNote })(NoteShow)
 
-// console.log(props)
-//a function that checks props to see if note exists to determine which button to display
-// the logic involved in searching db for note will be in notesContainers and passed to noteDetail as props

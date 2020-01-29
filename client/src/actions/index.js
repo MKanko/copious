@@ -34,7 +34,6 @@ export const onVideoSelect = (video) => {
 export const createNote = (note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title })
     return (dispatch) => {
-        // dispatch({ type: 'CREATE_NOTE'})
         fetch('http://localhost:3001/notes', {
             method: 'POST',
             headers: {
@@ -51,7 +50,6 @@ export const createNote = (note) => {
 export const editNote = (noteId, note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
     return (dispatch) => {
-        // dispatch({ type: 'EDIT_NOTE'})
         fetch(`http://localhost:3001/notes/${noteId}`, {
             method: 'PUT',
             headers: {
@@ -70,15 +68,13 @@ export const fetchNote = (userId, videoId) => {
     const params = { videoId, userId }
     url.search = new URLSearchParams(params).toString()
     return (dispatch) => {
-        // dispatch({ type: 'LOAD_NOTE' })
         fetch(url)
         .then(response => response.json())
         .then(note => dispatch({ type: 'ADD_VIDEO_NOTE', payload: note })) 
     }      
 }
 
-export const getNote = (noteId) => { 
-    // const url = `http://localhost:3001/notes/${noteId}`   
+export const getNote = (noteId) => {    
     return (dispatch) => {     
         fetch(`http://localhost:3001/notes/${noteId}`, {
             method: 'GET',
@@ -107,6 +103,8 @@ export const fetchNotes = () => {
         .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
     }
 }
+
+
 
 
 

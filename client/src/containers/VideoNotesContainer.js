@@ -14,7 +14,6 @@ class VideoNotesContainer extends React.Component {
     componentDidUpdate(prevProps) {
         if(this.props.userId !== prevProps.userId || this.props.videoId !== prevProps.videoId) {
             console.log('fetch ran')
-            // const noteId = this.props.userId + '-' + this.props.videoId
             this.props.fetchNote(this.props.userId, this.props.videoId)
         }      
     }

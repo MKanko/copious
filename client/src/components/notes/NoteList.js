@@ -4,6 +4,7 @@ import NoteItem from './NoteItem'
 
 
 const NoteList = (props) => {
+    // console.log(props)
     let selectedNotes
     let renderNotes
 

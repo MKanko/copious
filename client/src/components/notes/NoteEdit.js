@@ -6,10 +6,6 @@ import NoteForm from './NoteForm'
 
 class NoteEdit extends React.Component {
 
-    // componentDidMount() {
-    //     this.props.fetchNote(this.props.userId, this.props.videoId)
-    // }
-
     onSubmit = (formValues) => {
         this.props.editNote(this.props.note.data.id, { ...formValues, videoId: this.props.videoId, 
             userId: this.props.userId })
@@ -25,7 +21,6 @@ class NoteEdit extends React.Component {
         }
     console.log('note edit render')
     console.log(this.props)
-    // alert(_.pick(this.props.note.data.attributes, 'content').content)
         return (
             <div>
                <NoteForm buttonText={'Edit Note'} onSubmit={this.onSubmit} initialValues={{ content: this.props.note.data.attributes.content }} /> 
@@ -33,9 +28,5 @@ class NoteEdit extends React.Component {
         )
     }                          
 }                 
-
-// const mapStateToProps = (state) => {
-//     return { note: state.notes.selectedNote }  
-// }
 
 export default connect(null, { editNote, fetchNote })(NoteEdit)
