@@ -104,6 +104,22 @@ export const fetchNotes = () => {
     }
 }
 
+export const deleteNote = (noteId) => {      
+    return (dispatch) => {     
+        fetch(`http://localhost:3001/notes/${noteId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(note => {  
+            dispatch({ type: 'DELETE_NOTE', payload: noteId })
+        }) 
+    }      
+}
+
 
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import NoteItem from './NoteItem' 
+import NoteItem from './NoteItem'
+ 
 
 
 
@@ -14,7 +15,7 @@ const NoteList = (props) => {
         })
 
         renderNotes = selectedNotes.map((note) => {
-            return <NoteItem note={note} key={note.id} />
+            return <NoteItem note={note} key={note.id} deleteNote={props.deleteNote} />
         })
     }
      

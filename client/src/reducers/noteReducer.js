@@ -18,6 +18,14 @@ export default (state = { notes: [], selectedNote: null, requesting: false }, ac
         case 'ADD_NOTE':
             return { ...state, note: action.payload }
 
+        case 'DELETE_NOTE':
+            return { ...state, notes: { 
+                    data: state.notes.data.filter(note => {
+                        return note.id !== action.payload 
+                    })
+                }
+            }
+
         default:
             return state 
     }

@@ -32,7 +32,7 @@ class NotesController < ApplicationController
         render json: NoteSerializer.new(note)
     end 
 
-    def delete
+    def destroy
         note = Note.find(params[:id]).destroy
 
         render json: NoteSerializer.new(note)

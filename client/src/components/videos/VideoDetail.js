@@ -2,6 +2,7 @@ import React from 'react'
 import VideoNotesContainer from '../../containers/VideoNotesContainer'
 
 
+
 const VideoDetail = (props) => {
     // console.log(props)
     if (!props.video) {

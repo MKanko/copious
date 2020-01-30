@@ -10,6 +10,7 @@ import { onTermSubmit, onVideoSelect } from '../actions'
 class VideosContainer extends React.Component {
     
     componentDidMount() {
+        console.log(this.props)
         const title = this.props.location.state ? this.props.location.state.title : 'Climbing Lessons'
         this.props.onTermSubmit(title)
     }
