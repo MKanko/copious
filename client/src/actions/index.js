@@ -16,8 +16,7 @@ export const signOut = () => {
 }
 
 export const onTermSubmit = (term) => async dispatch => {
-    const response = await youtube.get('/search', { params: { q: term }})
-       
+    const response = await youtube.get('/search', { params: { q: term }})    
     dispatch({
         type: 'ON_TERM_SUBMIT',
         payload: response.data.items
@@ -33,34 +32,14 @@ export const onVideoSelect = (video) => {
 
 export const createNote = (note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title })
-    return (dispatch) => {
-        backend.post('/notes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: params
-        })
-        .then(response => response.json())
-        .then(note => dispatch({ type: 'CREATE_NOTE', payload: note }))
-    }
+    const response = await backend.post('/notes', params)        
+    dispatch({ type: 'CREATE_NOTE', payload: response.note })
 }
 
 export const editNote = (noteId, note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
-    return (dispatch) => {
-        backend.patch(`/notes/${noteId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: params
-        })
-        .then(response => response.json())
-        .then(note => dispatch({ type: 'EDIT_NOTE', payload: note }))
-    }
+    const response = await backend.patch(`/notes/${noteId}`, params)
+    dispatch({ type: 'EDIT_NOTE', payload: response.note })
 }
 
 export const fetchNote = (userId, videoId) => {
@@ -74,50 +53,19 @@ export const fetchNote = (userId, videoId) => {
     }      
 }
 
-export const getNote = (noteId) => {    
-    return (dispatch) => {     
-        backend.get(`/notes/${noteId}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(note => {  
-            dispatch({ type: 'ADD_NOTE', payload: note })
-        }) 
-    }      
+export const getNote = (noteId) => {      
+    const response = await backend.get(`/notes/${noteId}`)
+    dispatch({ type: 'ADD_NOTE', payload: response.note })     
 }
 
 export const fetchNotes = () => {
-    return (dispatch) => {
-        backend.get('/notes', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(notes => dispatch({ type: 'ADD_NOTES', payload: notes }))
-    }
+    const response = await backend.get('/notes')
+    dispatch({ type: 'ADD_NOTES', payload: response.notes })
 }
 
 export const deleteNote = (noteId) => {      
-    return (dispatch) => {     
-        backend.delete(`/notes/${noteId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(note => {  
-            dispatch({ type: 'DELETE_NOTE', payload: noteId })
-        }) 
-    }      
+    const response = await backend.delete(`/notes/${noteId}`)
+    dispatch({ type: 'DELETE_NOTE', payload: noteId })      
 }
 
 
