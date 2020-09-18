@@ -9,7 +9,6 @@ class NotesController < ApplicationController
     def create 
         note = Note.create(user_id: params[:userId], date: Time.now, title: params[:videoTitle], 
         content: params[:noteContent], video_id: params[:videoId])
-binding.pry
         render json: NoteSerializer.new(note)
     end 
 
