@@ -31,13 +31,13 @@ export const onVideoSelect = (video) => {
 }
 
 export const createNote = (note) => async dispatch => {
-    const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title })
+    const params = { userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title }
     const response = await backend.post('/notes', params)        
     dispatch({ type: 'CREATE_NOTE', payload: response.data })
 }
 
 export const editNote = (noteId, note) => async dispatch => {
-    const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
+    const params = { userId: note.userId, videoId: note.videoId, noteContent: note.content }
     const response = await backend.patch(`/notes/${noteId}`, params)
     dispatch({ type: 'EDIT_NOTE', payload: response.data })
 }
