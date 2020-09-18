@@ -60,6 +60,7 @@ export const getNote = (noteId) => async dispatch => {
 
 export const fetchNotes = () => async dispatch => {
     const response = await backend.get('/notes')
+    console.log(response)
     dispatch({ type: 'ADD_NOTES', payload: response.notes })
 }
 
