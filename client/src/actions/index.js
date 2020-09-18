@@ -33,13 +33,13 @@ export const onVideoSelect = (video) => {
 export const createNote = (note) => async dispatch => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title })
     const response = await backend.post('/notes', params)        
-    dispatch({ type: 'CREATE_NOTE', payload: response.note })
+    dispatch({ type: 'CREATE_NOTE', payload: response.data })
 }
 
 export const editNote = (noteId, note) => async dispatch => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
     const response = await backend.patch(`/notes/${noteId}`, params)
-    dispatch({ type: 'EDIT_NOTE', payload: response.note })
+    dispatch({ type: 'EDIT_NOTE', payload: response.data })
 }
 
 export const fetchNote = (userId, videoId) => {
@@ -55,13 +55,12 @@ export const fetchNote = (userId, videoId) => {
 
 export const getNote = (noteId) => async dispatch => {      
     const response = await backend.get(`/notes/${noteId}`)
-    dispatch({ type: 'ADD_NOTE', payload: response.note })     
+    dispatch({ type: 'ADD_NOTE', payload: response.data })     
 }
 
 export const fetchNotes = () => async dispatch => {
     const response = await backend.get('/notes')
-    console.log(response)
-    dispatch({ type: 'ADD_NOTES', payload: response.notes })
+    dispatch({ type: 'ADD_NOTES', payload: response.data })
 }
 
 export const deleteNote = (noteId) => async dispatch => {      
