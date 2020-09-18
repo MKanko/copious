@@ -1,4 +1,5 @@
 import youtube from '../apis/youtube'
+import backend from '../apis/backend'
 
 
 export const signIn = (userId) => {
@@ -33,7 +34,7 @@ export const onVideoSelect = (video) => {
 export const createNote = (note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content, videoTitle: note.title })
     return (dispatch) => {
-        fetch('http://localhost:3001/notes', {
+        backend.post('/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ export const createNote = (note) => {
 export const editNote = (noteId, note) => {
     const params = JSON.stringify({ userId: note.userId, videoId: note.videoId, noteContent: note.content })
     return (dispatch) => {
-        fetch(`http://localhost:3001/notes/${noteId}`, {
+        backend.patch(`/notes/${noteId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ export const editNote = (noteId, note) => {
 }
 
 export const fetchNote = (userId, videoId) => {
-    const url = new URL('http://localhost:3001/video-note')
+    const url = new URL('http://api.copious-app.com/video-note')
     const params = { videoId, userId }
     url.search = new URLSearchParams(params).toString()
     return (dispatch) => {
@@ -75,7 +76,7 @@ export const fetchNote = (userId, videoId) => {
 
 export const getNote = (noteId) => {    
     return (dispatch) => {     
-        fetch(`http://localhost:3001/notes/${noteId}`, {
+        backend.get(`/notes/${noteId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -91,7 +92,7 @@ export const getNote = (noteId) => {
 
 export const fetchNotes = () => {
     return (dispatch) => {
-        fetch('http://localhost:3001/notes', {
+        backend.get('/notes', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -105,7 +106,7 @@ export const fetchNotes = () => {
 
 export const deleteNote = (noteId) => {      
     return (dispatch) => {     
-        fetch(`http://localhost:3001/notes/${noteId}`, {
+        backend.delete(`/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
