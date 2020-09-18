@@ -23,7 +23,6 @@ export const onTermSubmit = (term) => async dispatch => {
     })
 }
 
-
 export const onVideoSelect = (video) => {
     return {
         type: 'ON_VIDEO_SELECT',

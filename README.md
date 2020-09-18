@@ -12,8 +12,8 @@ Installation and Start:
 
 1) Fork and clone this repo.
 2) Run npm install.
-3) Run rake start to servers.
-4) Navigate to localhose:3000
+3) Run rake start to start servers.
+4) Navigate to localhost:3000
 ___________________________________________________________________
 
 Contributors Guide:
