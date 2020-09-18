@@ -6,7 +6,6 @@ import { fetchNotes, deleteNote } from '../actions'
 import NoteHeader from '../components/notes/NoteHeader'
 import NoteList from '../components/notes/NoteList'
 
-
 class NotesContainer extends React.Component {
 
     componentDidMount() {
