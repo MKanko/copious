@@ -19,11 +19,9 @@ class NoteEdit extends React.Component {
                 </div>
             )
         }
-    console.log('note edit render')
-    console.log(this.props)
         return (
             <div>
-               <NoteForm buttonText={'Edit Note'} onSubmit={this.onSubmit} initialValues={{ content: this.props.note.data.attributes.content }} /> 
+               <NoteForm buttonText={'Edit Note'} onSubmit={this.onSubmit} initialValues={{ content: this.props.note.data.attributes.content }} resetMessage={this.props.resetMessage} /> 
             </div>
         )
     }                          

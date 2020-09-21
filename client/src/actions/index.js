@@ -43,7 +43,8 @@ export const editNote = (noteId, note) => async dispatch => {
 }
 
 export const fetchNote = (userId, videoId) => {
-    const url = new URL('http://api.copious-app.com/video-note')
+    const baseUrl = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? 'http://localhost:3001' : 'http://api.copious-app.com'
+    const url = new URL(`${baseUrl}/video-note`)
     const params = { videoId, userId }
     url.search = new URLSearchParams(params).toString()
     return (dispatch) => {
@@ -64,7 +65,7 @@ export const fetchNotes = () => async dispatch => {
 }
 
 export const deleteNote = (noteId) => async dispatch => {      
-    const response = await backend.delete(`/notes/${noteId}`)
+    await backend.delete(`/notes/${noteId}`)
     dispatch({ type: 'DELETE_NOTE', payload: noteId })      
 }
 

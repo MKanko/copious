@@ -1,4 +1,4 @@
-export default (state = { notes: [], selectedNote: null, requesting: false }, action) => {
+export default (state = { notes: [], selectedNote: null, requesting: false, message: '' }, action) => {
     switch (action.type) {
         case 'LOAD_NOTE':
             return { ...state, requesting: true }
@@ -7,10 +7,10 @@ export default (state = { notes: [], selectedNote: null, requesting: false }, ac
             return { ...state, selectedNote: action.payload, requesting: false }
 
         case 'CREATE_NOTE':
-            return { ...state, selectedNote: action.payload }
+            return { ...state, selectedNote: action.payload, message: 'Note created successfully.' + Date(Date.now).toString() }
 
         case 'EDIT_NOTE':
-            return { ...state, selecetdNote: action.payload }
+            return { ...state, selectedNote: action.payload, message: 'Note updated successfully.' + Date(Date.now).toString() }
 
         case 'ADD_NOTES':
             return { ...state, notes: action.payload }

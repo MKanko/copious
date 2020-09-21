@@ -17,7 +17,6 @@ class NoteForm extends React.Component {
 
     renderInput = (formProps) => {
         const className = `field ${formProps.meta.touched && formProps.meta.error ? 'error' : ''}`
-        console.log(formProps)                // if the input field renders as error the box will be red
         return (
             <div className={className}> 
                 <label>{formProps.label}</label>
@@ -31,13 +30,15 @@ class NoteForm extends React.Component {
         this.props.onSubmit(formValues)           
     }
 
-    render() {
-        console.log('noteForm has rendered')
-        
+    onChange = (event) => {
+        this.props.resetMessage()      
+    }
+
+    render() {     
         return (
             <div>
                 <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>  
-                    <Field name="content" component={this.renderInput} label="Make Copious Notes" />                 
+                    <Field name="content" component={this.renderInput} label="Make Copious Notes" onChange={this.onChange} />                 
                     <button className="ui button primary">{this.props.buttonText}</button>
                 </form>
             </div>
