@@ -14,7 +14,6 @@ class NotesController < ApplicationController
 
     def show_video_note
         note = Note.find_by(user_id: params[:userId], video_id: params[:videoId])
-        
         render json: NoteSerializer.new(note)
     end
 

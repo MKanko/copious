@@ -13,7 +13,6 @@ class VideoNotesContainer extends React.Component {
 
     componentDidUpdate(prevProps) {
         if(this.props.userId !== prevProps.userId || this.props.videoId !== prevProps.videoId) {
-            console.log('fetch ran')
             this.props.fetchNote(this.props.userId, this.props.videoId)
         }      
     }
@@ -21,7 +20,7 @@ class VideoNotesContainer extends React.Component {
     render() {
         return (
             <div className="ui container">
-              <NoteDetail note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} videoTitle={this.props.videoTitle} />                
+              <NoteDetail note={this.props.note} userId={this.props.userId} videoId={this.props.videoId} videoTitle={this.props.videoTitle} message={this.props.message} />                
             </div>
         )
     }
@@ -32,7 +31,8 @@ const mapStateToProps = (state) => {
         userId: state.auth.userId,
         videoId: state.videos.selectedVideo.id.videoId,
         note: state.notes.selectedNote,
-        videoTitle: state.videos.selectedVideo.snippet.title  
+        videoTitle: state.videos.selectedVideo.snippet.title,
+        message: state.notes.message  
     }
 }
 
